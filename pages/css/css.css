@@ -42,6 +42,11 @@ button:hover{
     background-color: #ED8C42;
 }
 
+.mini{
+    padding: 4px;
+    font-size: 16px;
+}
+
 .checkbox{
     display: inline-block;
     width: auto;
@@ -95,6 +100,10 @@ nav div.active{
 main{
     padding: 8px;
     text-align: center;
+}
+
+.config-header{
+    font-weight: bold;
 }
 
 /* loading overlay */

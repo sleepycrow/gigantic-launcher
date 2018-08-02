@@ -30,6 +30,7 @@
         </header>
         
         <main id="main-pages">
+            
             <input type="text" placeholder="Nickname" name="nickname" id="nickname" />
             
             <section data-tab="join">
@@ -60,15 +61,17 @@
 
             <section data-tab="config" class="hidden">
                 <form data-action="config" id="config-form">
-                    <div>Game Binary Location:</div>
-                    <input type="text" id="binary-location" data-index="binaryPath" />
+                    <div class="config-header">Game Binary Location:</div>
+                    <div id="binary-path-preview"></div>
+                    <button id="binary-path-button" class="mini" data-index="binaryPath">Change</button>
 
-                    <div>Server Port:</div>
-                    <input type="number" data-index="port" id="port" placeholder="Port" value="7777" min="1" max="65535" />
+                    <div class="config-header">Server Port:</div>
+                    <input type="number" data-index="port" id="port" placeholder="7777" min="1" max="65535" />
 
                     <button>Save</button>
                 </form>
             </section>
+
         </main>
 
         <script>

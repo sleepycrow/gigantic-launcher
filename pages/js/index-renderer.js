@@ -28,10 +28,22 @@ function updateConfig(config){
     }
 
     // Add the game's binary to the config tab
-    var binaryPathInput = document.getElementById("binary-location");
+    var binaryPathButton = document.getElementById("binary-path-button");
+    var binaryPathPreview = document.getElementById("binary-path-preview");
 
-    if(typeof config.binaryPath == "string" && binaryPathInput != null){
-        binaryPathInput.value = config.binaryPath;
+    if(typeof config.binaryPath == "string" && binaryPathButton != null && binaryPathPreview != null){
+        binaryPathButton.value = config.binaryPath;
+        binaryPathPreview.innerText = config.binaryPath;
+    }
+
+    // Make the "change binary path" button request a file dialog
+    if(binaryPathButton != null){
+        binaryPathButton.onclick = function(e){
+            e.preventDefault();
+            ipcRenderer.send("binary-path-change-request", {
+                defaultPath: config.binaryPath
+            });
+        }
     }
 
     //Add the port
