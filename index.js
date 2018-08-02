@@ -42,8 +42,15 @@ ipcMain.on("launch-request", (event, data) => {
     // Save the nickname
     if(typeof data.nickname != "undefined"){
         configManager.config.nickname = data.nickname;
-        configManager.save();
     }
+
+    // ...and the port
+    if(typeof data.port != "undefined"){
+        var port = Number.parseInt(data.port);
+        if(port > 0) configManager.config.port = port;
+    }
+
+    configManager.save();
 
     // Launch the client
     var launcher = new ClientLauncher(configManager.config.binaryPath);

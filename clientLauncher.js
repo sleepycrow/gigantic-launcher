@@ -37,6 +37,12 @@ class ClientLauncher{
             // If hosting server, listen for connections
             if(args.action == "host") udkArgs.push("?listen=true");
 
+            // Port
+            if(args.port){
+                var port = Number.parseInt(args.port);
+                if(port > 0) udkArgs.push("?port=" + port);
+            }
+
             // Generate the command
             var command = commandElements.join(" ") + " " + udkArgs.join("");
             exec(command);
