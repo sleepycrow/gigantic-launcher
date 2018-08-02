@@ -1,7 +1,7 @@
 {
   "name": "gigantic-launcher",
   "productName": "Gigantic Launcher",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An off-brand launcher for Gigantic",
   "main": "index.js",
   "scripts": {
