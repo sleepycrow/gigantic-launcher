@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" type="text/css" href="./css/css.css">
+
+        <title>Gigantic Launcher</title>
+    </head>
+    <body>
+        <div class="loading-overlay" id="loading-overlay">
+            <div class="loading-message" data-message="loading-launcher">
+                <p>Please wait while the launcher loads...</p>
+            </div>
+
+            <div class="loading-message hidden" data-message="loading-client">
+                <p>Please wait while Gigantic loads...</p>
+                <p>(it may look like the game's glitching out, but it's not - it's actually loading directly into the map without showing any loading screen)</p>
+            </div>
+        </div>
+        
+        <header>
+            <img src="./resx/logo.png" alt="Gigantic Logo" />
+            
+            <nav id="main-tabs">
+                <div class="active" data-tab="join">Join</div>
+                <div data-tab="host">Host</div>
+                <div data-tab="config">Config</div>
+            </nav>
+        </header>
+        
+        <main id="main-pages">
+            <input type="text" placeholder="Nickname" name="nickname" id="nickname" />
+            
+            <section data-tab="join">
+                <form data-action="join" id="join-form">
+                    <input type="text" placeholder="IP Address:Port" data-index="ip" />
+                    
+                    <button>Join</button>
+                </form>
+            </section>
+            
+            <section data-tab="host" class="hidden">
+                <form data-action="host" id="host-form">
+                    <select data-index="map" id="map-list">
+                            <option value="lv_canyon">Ghost Reef</option>
+                            <option value="lv_grassland">Practice Range</option>
+                            <option value="lv_magma">Magma</option>
+                            <option value="lv_mistforge">Sanctum Falls</option>
+                            <option value="lv_skycity">Sky City</option>
+                            <option value="lv_valley">Siren's Strand</option>
+                            <option value="lv_wizardwoods">Ember Grove</option>
+                    </select>
+                    
+                    <p><label class="checkbox-label"><input type="checkbox" class="checkbox" data-index="dedicated" /> Dedicated Server</label></p>
+                    
+                    <button>Host</button>
+                </form>
+            </section>
+
+            <section data-tab="config" class="hidden">
+                <form data-action="config" id="config-form">
+                    <div>Game Binary Location:</div>
+                    <input type="text" id="binary-location" data-index="binaryPath" />
+
+                    <button>Save</button>
+                </form>
+            </section>
+        </main>
+
+        <script>
+            require('./js/index-renderer.js');
+        </script>
+    </body>
+</html>

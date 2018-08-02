@@ -1,0 +1,121 @@
+body{
+    font-family: Arial, helvetica, sans-serif;
+    background-color: #00778B;
+    margin: 0;
+    color: #FFFBD6;
+}
+
+/* form elements */
+.hidden{
+    display: none !important;
+}
+
+input, select{
+    width: 100%;
+    padding: 8px;
+    margin: 6px 0;
+    box-sizing: border-box;
+    
+    border: 2px solid #3DF0DD;
+    background-color: #FFF;
+    
+    color: #053947;
+    font-size: 24px;
+}
+
+button{
+    padding: 8px;
+    margin: 6px 0;
+    box-sizing: border-box;
+    
+    background-color: #f1710a;
+    border: 2px solid #ffad5c;
+    
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #FFF;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #ED8C42;
+}
+
+.checkbox{
+    display: inline-block;
+    width: auto;
+}
+
+.checkbox-label{
+    cursor: pointer;
+}
+
+textarea{
+    display: block;
+    width: 100%;
+}
+
+/* page elements */
+header{
+    width: 100%;
+    text-align: center;
+    background-color: #053947;
+    border-bottom: 6px solid #3DF0DD;
+}
+
+header img{
+    max-height: 72px;
+    margin: 16px 0;
+}
+
+nav{
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+
+nav div{
+    display: table-cell;
+    text-align: center;
+    font-size: 24px;
+    padding: 8px 0;
+    cursor: pointer;
+}
+
+nav div:hover{
+    background-color: #074F60;
+}
+
+nav div.active{
+    font-weight: bold;
+    background-color: #074F60;
+}
+
+main{
+    padding: 8px;
+    text-align: center;
+}
+
+/* loading overlay */
+.loading-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    
+    width: 100%;
+    height: 100vh;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: wait;
+}
+
+.loading-message{
+    width: 100%;
+    text-align: center;
+    color: #FFF;
+}
