@@ -34,6 +34,13 @@ function updateConfig(config){
         binaryPathInput.value = config.binaryPath;
     }
 
+    //Add the port
+    var portInput = document.getElementById("port");
+
+    if(typeof config.port != "undefined" && portInput != null){
+        portInput.value = config.port;
+    }
+
     lc.hideOverlay();
 }
 

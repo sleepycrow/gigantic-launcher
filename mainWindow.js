@@ -7,7 +7,7 @@ module.exports = {
 
         self.window = new BrowserWindow({
             width: 600,
-            height: 512,
+            height: 480,
             resizable: false,
             maximizable: false,
             fullscreenable: false,

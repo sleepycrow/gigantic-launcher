@@ -51,8 +51,6 @@
                             <option value="lv_valley">Siren's Strand</option>
                             <option value="lv_wizardwoods">Ember Grove</option>
                     </select>
-
-                    <input type="number" data-index="port" placeholder="Port" value="7777" />
                     
                     <p><label class="checkbox-label"><input type="checkbox" class="checkbox" data-index="dedicated" /> Dedicated Server</label></p>
                     
@@ -64,6 +62,9 @@
                 <form data-action="config" id="config-form">
                     <div>Game Binary Location:</div>
                     <input type="text" id="binary-location" data-index="binaryPath" />
+
+                    <div>Server Port:</div>
+                    <input type="number" data-index="port" id="port" placeholder="Port" value="7777" min="1" max="65535" />
 
                     <button>Save</button>
                 </form>

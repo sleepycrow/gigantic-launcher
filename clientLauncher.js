@@ -2,8 +2,8 @@ const { exec } = require('child_process');
 const { existsSync } = require('fs');
 
 class ClientLauncher{
-    constructor(binaryPath){
-        this.binaryPath = binaryPath;
+    constructor(config){
+        this.config = config;
     }
 
     launchClient(args){
@@ -14,9 +14,9 @@ class ClientLauncher{
             var udkArgs = [];
 
             // Start the command off with the binary
-            if(self.binaryPath){
-                if(existsSync(self.binaryPath)){
-                    commandElements.push('"' + self.binaryPath + '"');
+            if(self.config.binaryPath){
+                if(existsSync(self.config.binaryPath)){
+                    commandElements.push('"' + self.config.binaryPath + '"');
                 }else{
                     reject("The game binary specified in the config does not exist.");
                 }
@@ -38,9 +38,11 @@ class ClientLauncher{
             if(args.action == "host") udkArgs.push("?listen=true");
 
             // Port
-            if(args.port){
-                var port = Number.parseInt(args.port);
+            if(self.config.port){
+                var port = Number.parseInt(self.config.port);
+
                 if(port > 0) udkArgs.push("?port=" + port);
+                else reject("Invalid port number provided.");
             }
 
             // Generate the command

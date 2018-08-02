@@ -44,16 +44,10 @@ ipcMain.on("launch-request", (event, data) => {
         configManager.config.nickname = data.nickname;
     }
 
-    // ...and the port
-    if(typeof data.port != "undefined"){
-        var port = Number.parseInt(data.port);
-        if(port > 0) configManager.config.port = port;
-    }
-
     configManager.save();
 
     // Launch the client
-    var launcher = new ClientLauncher(configManager.config.binaryPath);
+    var launcher = new ClientLauncher(configManager.config);
     launcher.launchClient(data)
     .then((command) => {
         console.log("Launching client with the following command:");
