@@ -5,7 +5,6 @@ class ConfigManager{
     constructor(filePath){
         this.filePath = filePath;
         this.defaultConfig = {
-            binaryPath: "Game\\Binaries\\Win64\\RxGame-Win64-Test.exe",
             port: 7777,
             maps: {
                 "lv_canyon": "Ghost Reef",
