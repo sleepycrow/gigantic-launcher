@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder build --windows nsis"
+    "build": "electron-builder build --windows nsis zip"
   },
   "author": "sleepycrow",
   "license": "ISC",
