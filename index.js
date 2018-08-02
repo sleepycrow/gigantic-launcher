@@ -1,4 +1,4 @@
-const { app, ipcMain } = require('electron');
+const { app, ipcMain, dialog } = require('electron');
 const ConfigManager = require('./configManager.js');
 const MainWindow = require('./mainWindow.js');
 const ClientLauncher = require('./clientLauncher.js');
@@ -32,6 +32,27 @@ ipcMain.on("change-config", (event, data) => {
     configManager.save();
     
     event.sender.send("config", configManager.config);
+});
+
+ipcMain.on("binary-path-change-request", (event, data) => {
+    console.log("Binary path change request recieved.");
+    
+    var files = dialog.showOpenDialog({
+        properties: ["openFile"],
+        filters: [
+            {name: "*.exe", extensions: ["exe"]}
+        ],
+        defaultPath: data.defaultPath || configManager.config.binaryPath
+    });
+
+    console.log("Files selected:", files);
+
+    if(typeof files != "undefined"){
+        configManager.config.binaryPath = files[0];
+        configManager.save();
+
+        event.sender.send("config", configManager.config);
+    }
 });
 
 // Client Launching
