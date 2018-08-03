@@ -30,6 +30,7 @@ class ClientLauncher{
             // Map/IP
             if(args.map) commandElements.push(args.map);
             else if(args.ip) commandElements.push(args.ip);
+            else commandElements.push(""); // just so there's always a space between the normal args and udk args
 
             // Username
             if(args.nickname) udkArgs.push("?name=" + args.nickname);
@@ -46,7 +47,7 @@ class ClientLauncher{
             }
 
             // Generate the command
-            var command = commandElements.join(" ") + " " + udkArgs.join("");
+            var command = commandElements.join(" ") + udkArgs.join("");
             exec(command);
 
             resolve(command);
